@@ -2,16 +2,9 @@
   "name": "node_auth-app",
   "version": "1.0.0",
   "description": "Auth app",
-  "main": "src/index.js",
+  "main": "api/index.js",
   "scripts": {
-    "init": "mate-scripts init",
     "dev": "nodemon main",
-    "start": "mate-scripts start",
-    "lint": "mate-scripts lint",
-    "test:only": "mate-scripts test",
-    "update": "mate-scripts update",
-    "postinstall": "npm run update",
-    "test": "npm run lint && npm run test:only",
     "swagger-autogen": "node swagger.js"
   },
   "author": "Mate academy",
