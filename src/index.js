@@ -33,14 +33,11 @@ app.use(
 );
 app.use(errorMiddleware);
 app.use("/doc", swaggerUi.serve, swaggerUi.setup(swaggerFile));
+app.get("/", (req, res) => res.send("Server was published on Vercel"));
 
 // for all other pages
 app.use((req, res, next) => {
   next(ApiError.NotFound());
 });
 
-const PORT = process.env.PORT;
-
-app.listen(PORT, () => {
-  console.log(`Server is running on the ${process.env.SERVER_URL}`);
-});
+module.exports = app;
