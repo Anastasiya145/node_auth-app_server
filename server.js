@@ -1,7 +1,7 @@
 "use strict";
 
 require("dotenv/config");
-const app = require('../src/index');
+const app = require("./src/index");
 
 const PORT = process.env.PORT;
 

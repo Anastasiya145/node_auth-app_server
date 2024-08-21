@@ -2,7 +2,7 @@
   "name": "node_auth-app",
   "version": "1.0.0",
   "description": "Auth app",
-  "main": "api/index.js",
+  "main": "server.js",
   "scripts": {
     "dev": "nodemon main",
     "swagger-autogen": "node swagger.js"
