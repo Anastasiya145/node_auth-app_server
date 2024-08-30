@@ -34,9 +34,6 @@ app.use(
   userRouter
   // #swagger.tags = ['Users']
 );
-app.use((req, res, next) => {
-  next(ApiError.NotFound());
-}); // for all other pages
 
 // Swagger setup
 const CSS_SWAGGER_URL =
@@ -51,5 +48,9 @@ app.use(
     customCssUrl: CSS_SWAGGER_URL,
   })
 );
+
+app.use((req, res, next) => {
+  next(ApiError.NotFound());
+}); // for all other pages
 
 module.exports = app;
