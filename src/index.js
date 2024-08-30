@@ -22,7 +22,10 @@ app.use(
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(errorMiddleware);
 
+// Routes
+app.get("/", (req, res) => res.send("Server was published on Vercel"));
 app.use(
   authRouter
   // #swagger.tags = ['Auths']
@@ -31,13 +34,22 @@ app.use(
   userRouter
   // #swagger.tags = ['Users']
 );
-app.use(errorMiddleware);
-app.use("/doc", swaggerUi.serve, swaggerUi.setup(swaggerFile));
-app.get("/", (req, res) => res.send("Server was published on Vercel"));
-
-// for all other pages
 app.use((req, res, next) => {
   next(ApiError.NotFound());
-});
+}); // for all other pages
+
+// Swagger setup
+const CSS_SWAGGER_URL =
+  "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css";
+
+app.use(
+  "/api-docs",
+  swaggerUi.serve,
+  swaggerUi.setup(swaggerFile, {
+    customCss:
+      ".swagger-ui .opblock .opblock-summary-path-description-wrapper { align-items: center; display: flex; flex-wrap: wrap; gap: 0 10px; padding: 0 10px; width: 100%; }",
+    customCssUrl: CSS_SWAGGER_URL,
+  })
+);
 
 module.exports = app;
