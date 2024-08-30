@@ -1,6 +1,6 @@
 # Sign-In App (Back-End Part)
 
-Welcome to the Sign-In App backend repository! This backend service is built with Node.js and Express and provides user authentication and management functionalities. It supports features like user registration, email activation, password reset, and profile management.
+Welcome to the Sign-In App project! This is a full-stack application built with React and TypeScript for the frontend, and Node.js with Express for the backend. The app allows users to sign in with their credentials and is connected to a PostgreSQL database for persistent data storage.
 
 ## 🛠 Project Structure
 
