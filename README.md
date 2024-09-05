@@ -18,7 +18,7 @@ Welcome to the Sign-In App project! This is a full-stack application built with 
 - **Get All Activated Users**: Retrieve a list of all activated users.
 - **Others**: Return 404 for undefined routes.
 
-For detailed API documentation, visit [Swagger Documentation](https://node-auth-app-server.vercel.app/doc/).
+For detailed API documentation, visit [Swagger Documentation](https://node-auth-app-server.vercel.app/api-docs/).
 
 ## 🔗 Live Demo
 
