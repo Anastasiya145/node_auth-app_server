@@ -17,4 +17,11 @@ googleAuthRouter.post(
   // #swagger.description = 'Sign-in with your google account'
 );
 
+googleAuthRouter.post(
+  "/google/redirect",
+  passport.authenticate("google"),
+  (req, res) => res.send("to do")
+  // #swagger.description = 'TEST'
+);
+
 module.exports = googleAuthRouter;
