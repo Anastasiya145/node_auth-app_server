@@ -7,10 +7,23 @@
   },
   "servers": [
     {
-      "url": "https://node-auth-app-server.vercel.app/"
+      "url": "http://localhost:5000/"
     }
   ],
   "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "Auths"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/registration": {
       "post": {
         "tags": [
@@ -292,6 +305,35 @@
           },
           "401": {
             "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/google/registration": {
+      "post": {
+        "tags": [
+          "Google Auths"
+        ],
+        "description": "Register a new user with google auth.",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "BadRequest"
+          }
+        }
+      }
+    },
+    "/google/sign-in": {
+      "get": {
+        "tags": [
+          "Google Auths"
+        ],
+        "description": "Sign-in with your google account",
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }

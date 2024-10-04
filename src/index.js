@@ -5,11 +5,15 @@ const express = require("express");
 const cors = require("cors");
 const authRouter = require("./routes/auth.routes");
 const userRouter = require("./routes/user.routes");
+const googleAuthRouter = require("./routes/google-auth.routes");
 const errorMiddleware = require("./middlewares/error.middleware");
 const cookieParser = require("cookie-parser");
 const swaggerUi = require("swagger-ui-express");
 const swaggerFile = require("../swagger_output.json");
 const ApiError = require("./exceptions/ApiError");
+const passport = require("passport");
+
+require("./strategies/google");
 
 const app = express();
 
@@ -24,6 +28,8 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(errorMiddleware);
 
+app.use(passport.initialize());
+
 // Routes
 app.get("/", (req, res) => res.send("Server was published on Vercel"));
 app.use(
@@ -33,6 +39,10 @@ app.use(
 app.use(
   userRouter
   // #swagger.tags = ['Users']
+);
+app.use(
+  googleAuthRouter
+  // #swagger.tags = ['Google Auths']
 );
 
 // Swagger setup
